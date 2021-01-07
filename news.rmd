@@ -24,7 +24,7 @@ Photo: Maned wolf, Chrysocyon brachyurus, at Guapore Biological Reserve. (by Dan
 <center>![](pics/line_narrow.jpg){width=1000px}
 <br>
 
-<img src="pics/pec.JPG" style="width:70%; border:5px solid; margin-right: 20px" align="right">
+<img src="pics/pecsmall.jpeg" style="width:70%; border:5px solid; margin-right: 20px" align="right">
 
 <font size="2">
 
