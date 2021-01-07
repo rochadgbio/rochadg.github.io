@@ -1,0 +1,19 @@
+name: "Daniel Rocha"
+output_dir: "."
+navbar:
+  title: "Daniel Rocha"  
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Research"
+      href: research.html
+    - text: "Data sites"
+      href: sites.html
+    - text: "News"
+      href: news.html
+    - text: "Publications"
+      href: pub.html
+    - text: "Contact"
+      href: contact.html
+
+  

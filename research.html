@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>research.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Daniel Rocha</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="sites.html">Data sites</a>
+</li>
+<li>
+  <a href="news.html">News</a>
+</li>
+<li>
+  <a href="pub.html">Publications</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br> <font size="7"> <strong>Research</strong></p>
+<p><img src="pics/forest.JPG" width="900" /></p>
+<p><font size="3"></p>
+<p><left> The Amazonian forest is the largest tropical forest in the world and arguably the most biodiverse terrestrial ecosystem. For the past decades, Amazonia has experienced unprecedented threats, particularly the persistent high deforestation rates, widespread use of fire, and global climate change <sup>(1)</sup>. It is expected that, with current trends, 40% of Amazonian forests will be cleared by 2050 <sup>(2)</sup>, leaving behind highly fragmented forest patches in a human-dominated landscape. This ongoing drastic change in habitat availability and configuration raises concerns for the future of the many Amazonian forest-dependent wildlife species. To anticipate and mitigate the threats to wildlife, it is important to understand how species are affected by the rapidly changing landscape and increasing human presence.</p>
+<p>Mammalian carnivores (Order Carnivora) are experiencing severe declines in their populations and geographic ranges worldwide. Owing to their fundamental importance in the maintenance of the structure and function of terrestrial ecosystems, declines in carnivore population have direct and indirect effects on several processes including diversity maintenance, disease dynamics, carbon sequestration and stream flow <sup>(3)</sup>. The primary drivers of carnivore declines are <strong>habitat loss</strong> and <strong>human persecution</strong> <sup>(4)</sup>, and therefore, those are the main focus of my research.</p>
+<p>Our study area is in the southern Brazilian Amazonia, an area located in the middle of the “Arc of Deforestation”, the region with highest deforestation rates in Brazil due to rapid expansion of the agriculture frontier. Additional habitat degradation is expected in the region because of the local government’s ongoing plans for infrastructure expansion. As human occupation develops into the Southern Brazilian Amazonia, we expect an increase in habitat degradation and in interactions between local settlers and carnivores (e.g. jaguar, puma, wild dogs, ocelot, among others), most likely with negative consequences for both sides.</p>
+<p><br></p>
+<p><br></p>
+<p><img src="pics/burnednewb.png" style="width:30%; margin-right: 20px" align="right"></p>
+<p><strong>Habitat Loss and Fragmentation</strong></p>
+<p>To understand how carnivores respond to the ongoing forest cover changes in the Amazonia, we are conduct a systematic landscape camera-trap survey in the southern Brazilian Amazonia, representing a range of land cover including continuous forest, open savannas, transitional forest-savanna areas and forested patches under anthropogenic impact. We will use camera trap data in combination with statistical models that takes into account imperfect observation processes to investigate the effect of relevant habitat and anthropogenic variables on species occurrence.</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><img src="pics/skin1b.jpg" style="width:30%; margin-right: 20px" align="left"></p>
+<p><strong>Human – Carnivore Interactions</strong></p>
+<p>Despite their ecological role, carnivore behaviors often pose a direct threat to livestock, livelihood and safety of the people that live near them. We want to understand people`s feelings, attitudes and opinions towards carnivores to better propose strategies that foster coexistence between people and carnivores. For this objective, we are conducting a large-scale questionnaire survey that spatially overlaps with our camera trap survey.</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br> <strong>The Amazon-Cerrado Ecotone</strong></p>
+<p>The Amazonia is poorly studied <sup>(5)</sup>. Consequently, we still lack of knowledge on species ecology, including basic aspects such as their distributions. Moreover, large areas of the Amazonian forests have never been properly surveyed. This is worrying because some of those areas are under severe threat, and we are risking lose tracts of Amazonian biodiversity before they are discovered.</p>
+<p>The southern Brazilian Amazonia is one of those poorly studied and severely threatened areas. It is located at the border of the Amazonian forest and the Brazilian savanna (Cerrado), comprising heterogeneous mosaics of open areas and forests with a highly diverse faunal community composed of savannah and forest species. Our extensive surveys in this region will help to refine Amazonian species distribution limits and have the potential to document distribution range shifts as forest cover decreases in response to land use and climate change.</p>
+<p><img src="pics/atelocynus2.jpg" width="900" /></p>
+<p><br></p>
+<p><br></p>
+<p><font size="1"></p>
+<p><strong>References</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Lovejoy, T. E. &amp; Nobre, C. Amazon tipping point. Sci. Adv. 4, 1–2 (2018).</p></li>
+<li><p>Soares-Filho, B. S. et al. Modelling conservation in the Amazon basin. Nature 440, 520–523 (2006).</p></li>
+<li><p>Ripple, W. J. et al. Status and Ecological Effects of the World’s Largest Carnivores. Science (80) 343, (2014).</p></li>
+<li><p>Woodroffe, R., Thirgood, S. &amp; Rabinowitz, A. People and Wildlife: conflict or coexistence. (2005).</p></li>
+<li><p>Leite, R. N. &amp; Rogers, D. S. Revisiting Amazonian phylogeography: Insights into diversification hypotheses and novel perspectives. Org. Divers. Evol. 13, 639–664 (2013).</p></li>
+</ol>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

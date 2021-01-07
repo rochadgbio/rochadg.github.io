@@ -1,0 +1,86 @@
+---
+output:
+  html_document:
+  flexdashboard::flex_dashboard:
+    theme: paper
+---
+<br>
+ 
+<font size="7">
+
+**Data sites**
+
+
+<font size="3">
+
+-------------------------------------
+
+Sampling locations in the southern Brazilian Amazonia 
+
+```{r echo=F, warning=F, message=F, fig.width=9.5, fig.height=4.5}
+rm(list=ls())
+
+library(flexdashboard)
+library(sf)
+library(raster)
+library(leaflet)
+library(dplyr)
+library(rgdal)
+library(RColorBrewer)
+
+ct <- read.csv("./files/CT_sites_EPSG4326.csv")
+ct2<-ct[,2:3]
+ct.geo <- SpatialPoints(ct2, proj4string=CRS("+proj=longlat +datum=WGS84")) 
+ct_geo <- as.data.frame(ct.geo)
+
+ent <- read.csv("./files/Entrevistas_location_EPSG4326.csv")
+ent2<-ent[,2:3]
+ent.geo <- SpatialPoints(ent2, proj4string=CRS("+proj=longlat +datum=WGS84")) 
+ent_geo <- as.data.frame(ent.geo)
+
+#states and GB outline
+country <- sf::st_read("files/South America_EPSG4326.shp", quiet = TRUE)
+state <- sf::st_read("files/EstadosBR_IBGE_LLWGS84.shp", quiet = TRUE)
+
+#color pallet
+mapcol <- brewer.pal(3, "Set2")
+
+
+####Map          
+leaflet() %>% 
+  addTiles() %>% 
+  setView(lng = -63, lat = -10.5, zoom = 6.2) %>%
+  addProviderTiles(providers$Esri.WorldPhysical) %>% 
+  
+  
+  # CT data
+  
+  addCircleMarkers(data = ct_geo, group = "Camera trap", lat=~Y, lng=~X, 
+                   opacity= 0.9, stroke = TRUE,
+                   popup=paste0 ("ID: ", ct[,1]), 
+                   weight=0.9,radius=3, color = "Blue", fillColor = "blue") %>% 
+  hideGroup("Camera trap") %>% 
+  
+  # Ent data
+  
+  addCircleMarkers(data = ent_geo, group = "Questionnaire", lat=~Y, lng=~X, 
+                   opacity= 0.9, stroke = TRUE,
+                   popup=paste0 ("ID: ", ": ", ent[,1]), 
+                   weight=0.9,radius=3, color = "red", fillColor = "red") %>% 
+  hideGroup("Questionnaire") %>% 
+
+  #add states and country shapes
+  addPolygons(data = country, color = "black", weight = 4, fillColor = "transparent") %>% 
+  addPolygons(data = state, color = "grey", weight = 1.5, fillColor = "transparent") %>% 
+  
+  addLayersControl(
+    overlayGroups = c("Camera trap", "Questionnaire"),
+    options = layersControlOptions(collapsed = F))
+
+```
+
+
+<br>
+
+
+

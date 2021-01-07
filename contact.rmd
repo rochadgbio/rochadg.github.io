@@ -1,0 +1,33 @@
+---
+output:
+  html_document:
+      theme: paper
+---
+<br>
+<font size="7">
+**Contact**
+
+
+<font size="5">
+
+Daniel Rocha
+
+<font size="3">
+
+University of California, Davis
+
+Wildlife, Fish, and Conservation Biology
+
+One Shields Avenue
+
+95616 Davis, CA - USA
+
+dgrocha@ucdavis.edu
+
+<br>
+
+[ResearchGate](https://www.researchgate.net/profile/Daniel_Rocha17)  |  [Google Scholar](https://scholar.google.com/citations?user=G6x9ZUkAAAAJ&hl=en) 
+
+<br>
+
+<center>![](pics/parda.jpg){width=900px}
